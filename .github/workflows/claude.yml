@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "Setting up project..."
           npm run setup
-          npm run dev: daemon
+          npm run dev:daemon
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
@@ -69,3 +69,4 @@ jobs:
                 }
               }
             }
+          allowed_tools: "Bash(npm:*), Bash(sqlite3:*), mcp__playwright__browser_snapshot, mcp__playwright__browser_click,..."
