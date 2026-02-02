@@ -156,3 +156,29 @@ test("extracts filename from nested path", () => {
 
   expect(screen.getByText("Component.tsx")).toBeDefined();
 });
+
+test("shows 'Modifying' for unknown str_replace_editor command", () => {
+  render(
+    <ToolStatus
+      toolName="str_replace_editor"
+      args={{ command: "unknown_command", path: "/file.ts" }}
+      isComplete={true}
+    />
+  );
+
+  expect(screen.getByText(/Modifying/)).toBeDefined();
+  expect(screen.getByText("file.ts")).toBeDefined();
+});
+
+test("shows 'Managing' for unknown file_manager command", () => {
+  render(
+    <ToolStatus
+      toolName="file_manager"
+      args={{ command: "unknown_command", path: "/file.ts" }}
+      isComplete={true}
+    />
+  );
+
+  expect(screen.getByText(/Managing/)).toBeDefined();
+  expect(screen.getByText("file.ts")).toBeDefined();
+});

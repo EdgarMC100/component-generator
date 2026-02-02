@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
     environment: 'jsdom',
+    alias: {
+      'next/navigation': new URL('./__mocks__/next/navigation.ts', import.meta.url).pathname,
+    },
   },
 })
